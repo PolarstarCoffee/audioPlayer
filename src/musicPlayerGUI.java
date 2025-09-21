@@ -72,7 +72,7 @@ public class musicPlayerGUI extends JFrame {
         musicPlayer = new MusicPlayer(this);
         // set default path for file explorer
         fileChooser = new JFileChooser();
-        fileChooser.setCurrentDirectory(new File("src/assets"));
+        fileChooser.setCurrentDirectory(new File("src/songs"));
         // filter to see only mp3 files
         fileChooser.setFileFilter(new FileNameExtensionFilter("MP3", "mp3"));
 
@@ -201,7 +201,7 @@ public class musicPlayerGUI extends JFrame {
                 JFileChooser jFileChooser = new JFileChooser();
                 // set file filter to only show text files (we save playlists as text files)
                 jFileChooser.setFileFilter(new FileNameExtensionFilter("Playlist", "txt"));
-                jFileChooser.setCurrentDirectory(new File("src/assets"));
+                jFileChooser.setCurrentDirectory(new File("src/songs"));
 
                 int result = jFileChooser.showOpenDialog(musicPlayerGUI.this);
                 File selectedFile = jFileChooser.getSelectedFile();
@@ -222,7 +222,6 @@ public class musicPlayerGUI extends JFrame {
     }
 
     private void AddPlaybackCtrls() {
-        // TODO: Add customization to playback controls
         playbackBtns = new JPanel();
         playbackBtns.setBounds(0, 435, getWidth() - 10, 80);
         playbackBtns.setBackground(null);

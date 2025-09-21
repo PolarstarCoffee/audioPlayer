@@ -1,2 +1,0 @@
-C:\dev\javaMP3\audioPlayer\src\assets\Otorii Station - Airship Stage.mp3
-C:\dev\javaMP3\audioPlayer\src\assets\Otorii Station - Opening Title.mp3
