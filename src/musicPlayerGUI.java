@@ -1,10 +1,14 @@
 package src;
 
+import java.awt.*;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.Hashtable;
 import java.awt.Font;
+import java.awt.Image;
+import java.net.URL;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -37,10 +41,19 @@ public class musicPlayerGUI extends JFrame {
     private JLabel songTitle, songArtist;
     private JPanel playbackBtns;
     private JSlider playbackSlider;
+    private JFrame famiconIcon;
 
     public musicPlayerGUI() {
-        // calls the JFrame constructor to configure the window and set its properties
         super("NVS");
+        // application icon
+        java.net.URL url = ClassLoader.getSystemResource("src/assets/famicon.png");
+        if (url != null) {
+            Toolkit kit = Toolkit.getDefaultToolkit();
+            Image img = kit.createImage(url);
+            this.setIconImage(img);
+        } else {
+            System.out.println("Image not found");
+        }
         // Set the size of the window
         setSize(400, 600);
         // Ensure the application exits when the window is closed
@@ -60,7 +73,6 @@ public class musicPlayerGUI extends JFrame {
         // set default path for file explorer
         fileChooser = new JFileChooser();
         fileChooser.setCurrentDirectory(new File("src/assets"));
-
         // filter to see only mp3 files
         fileChooser.setFileFilter(new FileNameExtensionFilter("MP3", "mp3"));
 
@@ -69,6 +81,7 @@ public class musicPlayerGUI extends JFrame {
 
     private void addGuiComponents() {
         addToolbar();
+
         // load image
         JLabel songImage = new JLabel(loadImage("src/assets/record.png"));
         songImage.setBounds(0, 50, getWidth() - 20, 225);
