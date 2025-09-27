@@ -323,7 +323,6 @@ public class musicPlayerGUI extends JFrame {
     }
 
     public void updatePlaybackSlider(Song song) {
-        // TODO: update the playback slider based on the song's current position
         playbackSlider.setMaximum(song.getMp3file().getFrameCount());
 
         // create the song length label
